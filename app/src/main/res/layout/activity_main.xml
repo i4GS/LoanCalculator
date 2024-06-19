@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_marginTop="110dp">
+
+    <ImageView
+        android:id="@+id/illustration"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/home_background"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WOAH !"
+        android:fontFamily="@font/lato_bold"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/illustration"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:letterSpacing="0.1" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate your loan fee now."
+        android:textSize="18sp"
+        android:fontFamily="@font/nunito_regular"
+        android:layout_below="@id/titleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:letterSpacing="0.02" />
+
+    <Button
+        android:id="@+id/carLoanButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="CAR LOAN"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:layout_below="@id/descriptionTextView"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:letterSpacing="0.1"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/homeLoanButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="HOME LOAN"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:layout_below="@id/carLoanButton"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:letterSpacing="0.1"
+        android:textSize="14sp"/>
+
+</RelativeLayout>

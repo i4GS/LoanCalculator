@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/backIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/back_icon"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/homeLoanTopicTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOME LOAN CALCULATOR"
+        android:fontFamily="@font/lato_bold"
+        android:letterSpacing="0.03"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/loanAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOAN AMOUNT ( RM )"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/grey_bold"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/homeLoanTopicTextView"
+        android:layout_marginTop="70dp"
+        android:paddingStart="5dp" />
+
+    <EditText
+        android:id="@+id/loanAmountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter your loan amount"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/loanAmountTextView"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/textbox"
+        android:paddingStart="15dp" />
+
+    <TextView
+        android:id="@+id/loanAmountErrorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loan amount must be at least RM 150,000"
+        android:textColor="@color/red"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        android:layout_below="@id/loanAmountEditText"
+        android:paddingStart="5dp" />
+
+    <TextView
+        android:id="@+id/loanTermTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOAN TERM ( YEARS )"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/grey_bold"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/loanAmountEditText"
+        android:layout_marginTop="25dp"
+        android:paddingStart="5dp" />
+
+    <EditText
+        android:id="@+id/loanTermEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter your loan term"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        android:inputType="number"
+        android:layout_below="@id/loanTermTextView"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/textbox"
+        android:paddingStart="15dp" />
+
+    <TextView
+        android:id="@+id/loanTermErrorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loan term must be between 20 - 35 years"
+        android:textColor="@color/red"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        android:layout_below="@id/loanTermEditText"
+        android:paddingStart="5dp" />
+
+    <TextView
+        android:id="@+id/interestRateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INTEREST RATE ( % )"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/grey_bold"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/loanTermEditText"
+        android:layout_marginTop="25dp"
+        android:paddingStart="5dp" />
+
+    <EditText
+        android:id="@+id/interestRateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter your interest rate"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/interestRateTextView"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/textbox"
+        android:paddingStart="15dp" />
+
+    <TextView
+        android:id="@+id/interestRateErrorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interest rate must be between 3 - 5 %"
+        android:textColor="@color/red"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        android:layout_below="@id/interestRateEditText"
+        android:paddingStart="5dp" />
+
+    <Button
+        android:id="@+id/homeCalculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="CALCULATE"
+        android:fontFamily="@font/lato_bold"
+        android:layout_below="@id/interestRateEditText"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:letterSpacing="0.2" />
+
+</RelativeLayout>
