@@ -24,11 +24,10 @@ public class ResultActivity extends AppCompatActivity {
 
         backIcon = findViewById(R.id.backIcon);
 
-        // Handle back button click
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed(); // Navigate back to previous activity
+                onBackPressed();
             }
         });
 
@@ -40,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
         totalResultTextView = findViewById(R.id.totalResultTextView);
         monthlyResultTextView = findViewById(R.id.monthlyResultTextView);
 
-        // Retrieve data from intent
+        // get data from intent
         double loanAmount = getIntent().getDoubleExtra("loanAmount", 0);
         int loanTerm = getIntent().getIntExtra("loanTerm", 0);
         double interestRate = getIntent().getDoubleExtra("interestRate", 0);
@@ -48,7 +47,7 @@ public class ResultActivity extends AppCompatActivity {
         double monthlyPayable = getIntent().getDoubleExtra("monthlyPayable", 0);
         double totalPayable = getIntent().getDoubleExtra("totalPayable", 0);
 
-        // Update TextViews with retrieved data
+        // replace new data with original text view
         loanAmountResultTextView.setText("Loan Amount : RM " + String.format("%.2f",loanAmount));
         loanTermResultTextView.setText("Loan Term : " + loanTerm + " years");
         interestRateResultTextView.setText("Interest Rate : " + interestRate + " %");

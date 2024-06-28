@@ -50,7 +50,7 @@ public class CarLoanActivity extends AppCompatActivity {
             }
         });
 
-        // Add TextWatchers for real-time validation
+        // listen on the input text field
         loanAmountEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -64,6 +64,7 @@ public class CarLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        // listen on the input text field
         loanTermEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -77,6 +78,7 @@ public class CarLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        // listen on the input text field
         interestRateEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -90,17 +92,16 @@ public class CarLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
-        // Handle calculate button click
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateLoanAmount() & validateLoanTerm() & validateInterestRate()) {
-                    // Retrieve user input
+                    // get input from text field and change type
                     double loanAmount = Double.parseDouble(loanAmountEditText.getText().toString());
                     int loanTerm = Integer.parseInt(loanTermEditText.getText().toString());
                     double interestRate = Double.parseDouble(interestRateEditText.getText().toString());
 
-                    // Calculate monthly and total payments
+                    // calculate monthly and total amount
                     double monthlyInterestRate = interestRate / 100 / 12;
                     int totalMonths = loanTerm * 12;
                     double monthlyPayable = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -totalMonths));
@@ -108,7 +109,7 @@ public class CarLoanActivity extends AppCompatActivity {
 
                     String loanType = "CAR LOAN";
 
-                    // Create intent to start ResultActivity and pass data to it
+                    // to show data in the result page
                     Intent intent = new Intent(CarLoanActivity.this, ResultActivity.class);
                     intent.putExtra("loanAmount", loanAmount);
                     intent.putExtra("loanTerm", loanTerm);
@@ -139,6 +140,7 @@ public class CarLoanActivity extends AppCompatActivity {
         String loanAmountStr = loanAmountEditText.getText().toString();
         if (!loanAmountStr.isEmpty()) {
             double loanAmount = Double.parseDouble(loanAmountStr);
+            // if more than 10000, hide the error text view
             if (loanAmount >= 10000) {
                 loanAmountErrorTextView.setVisibility(View.GONE);
                 return true;
@@ -156,6 +158,7 @@ public class CarLoanActivity extends AppCompatActivity {
         String loanTermStr = loanTermEditText.getText().toString();
         if (!loanTermStr.isEmpty()) {
             int loanTerm = Integer.parseInt(loanTermStr);
+            // if input between 1 - 9, hide the error text view
             if (loanTerm >= 1 && loanTerm <= 9) {
                 loanTermErrorTextView.setVisibility(View.GONE);
                 return true;
@@ -173,6 +176,7 @@ public class CarLoanActivity extends AppCompatActivity {
         String interestRateStr = interestRateEditText.getText().toString();
         if (!interestRateStr.isEmpty()) {
             double interestRate = Double.parseDouble(interestRateStr);
+            // if input between 3 - 5%, hide the error text view
             if (interestRate >= 3 && interestRate <= 5) {
                 interestRateErrorTextView.setVisibility(View.GONE);
                 return true;

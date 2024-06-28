@@ -32,7 +32,6 @@ public class HomeLoanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_loan);
 
-        // Initialize views
         loanAmountEditText = findViewById(R.id.loanAmountEditText);
         loanTermEditText = findViewById(R.id.loanTermEditText);
         interestRateEditText = findViewById(R.id.interestRateEditText);
@@ -46,11 +45,11 @@ public class HomeLoanActivity extends AppCompatActivity {
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed(); // Navigate back to previous activity
+                onBackPressed();
             }
         });
 
-        // Add TextWatchers for real-time validation
+        // listen on the input text field
         loanAmountEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -64,6 +63,7 @@ public class HomeLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        // listen on the input text field
         loanTermEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -77,6 +77,7 @@ public class HomeLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
+        // listen on the input text field
         interestRateEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -90,17 +91,17 @@ public class HomeLoanActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
 
-        // Handle calculate button click
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateLoanAmount() & validateLoanTerm() & validateInterestRate()) {
-                    // Retrieve user input
+
+                    // get input from text field and change type
                     double loanAmount = Double.parseDouble(loanAmountEditText.getText().toString());
                     int loanTerm = Integer.parseInt(loanTermEditText.getText().toString());
                     double interestRate = Double.parseDouble(interestRateEditText.getText().toString());
 
-                    // Calculate monthly and total payments
+                    // calculate monthly and total amount
                     double monthlyInterestRate = interestRate / 100 / 12;
                     int totalMonths = loanTerm * 12;
                     double monthlyPayable = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -totalMonths));
@@ -108,7 +109,7 @@ public class HomeLoanActivity extends AppCompatActivity {
 
                     String loanType = "HOME LOAN";
 
-                    // Create intent to start ResultActivity and pass data to it
+                    // to show data in the result page
                     Intent intent = new Intent(HomeLoanActivity.this, ResultActivity.class);
                     intent.putExtra("loanAmount", loanAmount);
                     intent.putExtra("loanTerm", loanTerm);
@@ -140,11 +141,13 @@ public class HomeLoanActivity extends AppCompatActivity {
         if (!loanAmountStr.isEmpty()) {
             double loanAmount = Double.parseDouble(loanAmountStr);
             if (loanAmount >= 150000) {
+                // if more than 150000, hide the error text view
                 loanAmountErrorTextView.setVisibility(View.GONE);
                 return true;
             } else {
+                // else show when wrong input
                 loanAmountErrorTextView.setVisibility(View.VISIBLE);
-                loanAmountErrorTextView.setText("Loan amount must be at least RM 150,000");
+                loanAmountErrorTextView.setText("Loan amount must be more than RM 150,000");
                 return false;
             }
         } else {
@@ -157,6 +160,7 @@ public class HomeLoanActivity extends AppCompatActivity {
         String loanTermStr = loanTermEditText.getText().toString();
         if (!loanTermStr.isEmpty()) {
             int loanTerm = Integer.parseInt(loanTermStr);
+            // if input between 20 - 35, hide the error text view
             if (loanTerm >= 20 && loanTerm <= 35) {
                 loanTermErrorTextView.setVisibility(View.GONE);
                 return true;
@@ -175,6 +179,7 @@ public class HomeLoanActivity extends AppCompatActivity {
         String interestRateStr = interestRateEditText.getText().toString();
         if (!interestRateStr.isEmpty()) {
             double interestRate = Double.parseDouble(interestRateStr);
+            // if input between 3 - 5%, hide the error text view
             if (interestRate >= 3 && interestRate <= 5) {
                 interestRateErrorTextView.setVisibility(View.GONE);
                 return true;
