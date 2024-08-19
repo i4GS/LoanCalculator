@@ -22,10 +22,10 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Start the main activity after 5 seconds
+                // start the main activity after 5 seconds
                 Intent intent = new Intent(Splash.this, MainActivity.class);
                 startActivity(intent);
-                finish(); // Finish the splash activity to prevent going back
+                finish();
             }
         }, 3000);
     }

@@ -32,7 +32,6 @@ public class CarLoanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_loan);
 
-        // Initialize views
         loanAmountEditText = findViewById(R.id.loanAmountEditText);
         loanTermEditText = findViewById(R.id.loanTermEditText);
         interestRateEditText = findViewById(R.id.interestRateEditText);
@@ -42,12 +41,11 @@ public class CarLoanActivity extends AppCompatActivity {
         loanTermErrorTextView = findViewById(R.id.loanTermErrorTextView);
         interestRateErrorTextView = findViewById(R.id.interestRateErrorTextView);
 
-        // Handle back button click
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed(); // Navigate back to previous activity
-            }
+                onBackPressed();
+            } // Navigate back to previous activity
         });
 
         // listen on the input text field

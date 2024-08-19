@@ -2,11 +2,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="#FFECF2" /> <!-- Pink color -->
+            <solid android:color="#FFECF2" /> <!-- pink color -->
             <corners android:radius="8dp" />
             <stroke
                 android:width="3dp"
-                android:color="#FFD9E5" /> <!-- Darker pink for the border -->
+                android:color="#FFD9E5" /> <!-- darker pink for the border -->
         </shape>
     </item>
 </layer-list>

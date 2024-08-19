@@ -41,12 +41,11 @@ public class HomeLoanActivity extends AppCompatActivity {
         loanTermErrorTextView = findViewById(R.id.loanTermErrorTextView);
         interestRateErrorTextView = findViewById(R.id.interestRateErrorTextView);
 
-        // Handle back button click
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-            }
+            } // Navigate back to previous activity
         });
 
         // listen on the input text field
